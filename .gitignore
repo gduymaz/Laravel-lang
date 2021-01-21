@@ -1,3 +1,7 @@
-_site
+/_site/
+/.idea/
 /vendor/
 .DS_Store
+.php_cs.cache
+composer.lock
+.phpintel

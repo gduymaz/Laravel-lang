@@ -1,138 +1,79 @@
-Laravel-lang
-=============
+# Laravel-lang
 
-In this repository, you can find the lang files for the framework PHP, [Laravel 4&5](http://www.laravel.com).
+In this repository, you can find the lang files for the [Laravel Framework 4/5/6/7/8](https://laravel.com), [Laravel Jetstream](https://jetstream.laravel.com) and [Laravel Fortify](https://github.com/laravel/fortify).
 
----
+## News
 
-## Update 29 March
+* in version 6.1, we propose a new file by language: `validation-inline.php` ( see #1268 )
+* in version 7, we propose new directory names to follow ISO-15897 ( see #1269 )
+* in version 8, we propose new directory names to follow Php Intl ( see #1453 )
 
-    The project changes its name, but not yet its Composer package's name.
-    You must choose the number of version of this project in your composer.json.
+## Install
 
+### Via Composer
 
----
+Install the Laravel-lang package to your Laravel project with composer using command from the table below based on the version of Laravel you are using:
 
-How add languages in my app ?
----
+| Laravel version                     | Composer command                                  |
+|-------------------------------------|---------------------------------------------------|
+| Laravel 7-8 with Php Intl           | `composer require laravel-lang/lang:~8.0` |
+| Laravel 8.x                         | `composer require laravel-lang/lang:~7.0` |
+| Laravel 7.x and new directory names | `composer require laravel-lang/lang:~7.0` |
+| Laravel 7.x                         | `composer require laravel-lang/lang:~6.1` |
+| Laravel 6.x                         | `composer require laravel-lang/lang:~5.0` |
+| Laravel 5.8                         | `composer require laravel-lang/lang:~4.0` |
+| Laravel 5.1-5.7                     | `composer require laravel-lang/lang:~3.0` |
+| Laravel 5                           | `composer require laravel-lang/lang:~2.0` |
+| Laravel 4                           | `composer require laravel-lang/lang:~1.0` |
 
-### Installation by GitHub
+#### Copy files
 
- * Clone the [GitHub repository](https://github.com/caouecs/laravel-lang/) : *git clone https://github.com/caouecs/Laravel-lang.git*
- * Or download the [zip file](https://github.com/caouecs/laravel-lang/archive/master.zip)
- * Choose the branch:
-    * `laravel4` for Laravel4 project
-    * `master` for Laravel5 project
- * Copy the folders of languages that you want, in *app/lang* folder of your application Laravel
+After adding the dependency using composer (as described above) to your application you can find the language files under the directory `vendor/laravel-lang/lang`.
 
+Copy the folders (and JSON files) of languages that you want to use, into the directory `resources/lang` of your Laravel application (or `app/lang` in Laravel 4).
 
-### Installation by Composer
+### Via GitHub
 
- * For Laravel 4 : add `"caouecs/laravel4-lang": "~1.0"` in your `composer.json` in "require" or run *composer require caouecs/laravel4-lang*
- * For Laravel 5 : add `"caouecs/laravel4-lang": "~2.0"` in your `composer.json` in "require"
- * Do "composer update"
- * Files of languages are in "vendor/caouecs/laravel4-lang" directory
- * Copy the folders of languages that you want, in *app/lang* (*resources/lang* in laravel 5) folder of your application Laravel
+* Clone the [GitHub repository](https://github.com/Laravel-Lang/lang/) : *git clone https://github.com/Laravel-Lang/lang.git*
+* Or download the [zip file](https://github.com/Laravel-Lang/lang/archive/master.zip)
+* Choose the branch:
+    * `laravel4` for Laravel 4 project
+    * `master` for Laravel 5, 6, 7, 8 projects
+* Copy the folders of languages that you want, in `resources/lang` folder of your Laravel application (or `app/lang` in Laravel 4).
 
-### Installation by Command
+### Via SVN
 
-If you have a Laravel5 project, you can use `laravel-lang` project of overtrue : *composer require "overtrue/laravel-lang:dev-master"*
+Run this in your project directory:
 
-### Language by default in your app
+```sh
+# Laravel 5:
+svn export https://github.com/Laravel-Lang/lang/trunk/src/[language-code] resources/lang/[language-code]
 
-In the file *app/config/app.php*, change the value of *language* by the short name of your language.
+# Laravel 4:
+svn export https://github.com/Laravel-Lang/lang/branches/laravel4/[language-code] app/lang/[language-code]
+```
 
----
+Replace `[language-code]` by any of the languages listed [here](src).
 
-How can I add a language in this project ?
----
+## Usage [Laravel only]
 
-* fork this repository
-* create a directory with the short name of the language (ex: fr for French) from ISO-639-1 ( see [Wikipedia](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) )
-* copy this three files of the english version with your translate
-    * for [Laravel](https://github.com/laravel/laravel/tree/master/app/lang/en)
-* add a pull request with the name of the language
+In the file *config/app.php*, change the value of *locale* by the short name of your language (*app/config/app.php* in Laravel 4).
 
+## Contributing
 
-How can I fix a file ?
----
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-* fork this repository
-* update the file
-* add a pull request with the name of the language
+## Status of files
 
-The files for Laravel 4 are in `laravel4` branch, and for Laravel 5, are in `master` branch.
+* Check the [todo.md](todo.md) file to see the missing translations.
 
+## Projects based on this package
 
-Laravel 4.0
----
+* [LaravelLang](https://github.com/ARCANEDEV/LaravelLang) by [*@arcanedev-maroc*](https://github.com/ARCANEDEV) - Translations manager and checker for Laravel.
+* [Laravel-lang](https://github.com/overtrue/laravel-lang) by [*@overtrue*](https://github.com/overtrue) - Command to add languages in your project.
+* [Lang Publisher](https://github.com/andrey-helldar/laravel-lang-publisher) by [*@andrey-helldar*](https://github.com/andrey-helldar) - Easy installation and update of translation files for your project.
 
-We need your help to finish to translate `validation.php` file with array elements.
+## Credits
 
-You can follow translations in the issue [#73](https://github.com/caouecs/laravel-lang/issues/73).
-
-Laravel 4.1
----
-
-### Password reminder sent
-
-To be ready for the new version of Laravel, we need your help. In `reminders.php` file, a new line has been added :
-
-    "sent" => "Password reminder sent!",
-
-You can follow translations in the issue [#137](https://github.com/caouecs/laravel-lang/issues/137).
-
-### Required without all
-
-In `validation.php` file, a new line has been added :
-
-    "required_without_all" => "The :attribute field is required when none of :values are present."
-
-You can follow translations in the issue [#172](https://github.com/caouecs/laravel-lang/issues/172).
-
-### Validation email
-
-In `validation.php` file, the text for email has been updated :
-
-    "email" => "The :attribute must be a valid email address."
-
-You can follow translations in the issue [#187](https://github.com/caouecs/laravel-lang/issues/187).
-
-### Required with all
-
-In `validation.php` file, a new line has been added :
-
-    "required_with_all" => "The :attribute field is required when :values is present."
-
-You can follow translations in the issue [#193](https://github.com/caouecs/laravel-lang/issues/193).
-
-Laravel 4.2
----
-
-### Reset in reminders
-
-In `reminders.php` file, a new line has been added :
-
-    "reset" => "Password has been reset!"
-
-You can follow translations in the issue [#258](https://github.com/caouecs/laravel-lang/issues/258).
-
-### Validation.timezone
-
-In `validation.php` file, a new line has been added :
-
-    "timezone" => "The :attribute must be a valid zone."
-
-You can follow translations in the issue [#259](https://github.com/caouecs/laravel-lang/issues/259).
-
-Laravel 5.0
----
-
-* array for PHP 5.4+
-* validation.filled, with same translation than validation.required
-* *reminders* file is now *languages* file
-
-In `passwords` file [#323](https://github.com/caouecs/laravel-lang/issues/323) :
-
-    "sent" => "We have e-mailed your password reset link!"
-    "reset" => "Your password has been reset!"
+- [Referents by language](referents.md)
+- [All Contributors](https://github.com/Laravel-Lang/lang/graphs/contributors)
